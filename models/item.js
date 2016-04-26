@@ -22,3 +22,20 @@ exports.create = function(item, cb) {
       '${item.item_room}')`,
     cb);
 };
+
+exports.delete = function(item, cb) {
+console.log("ITEM", item);
+  db.query(`DELETE FROM items WHERE (id) = (
+      ${item.id})`,
+    cb);
+};
+
+// router.delete('/:id',function(req,res,next){
+//   db.query('DELETE FROM questions WHERE ?', {id:req.params.id}, function(err,result){
+//     if(err){
+//       res.status(400).send(err);
+//       return;
+//     }
+//     res.send(result);
+//   });
+// });

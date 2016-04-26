@@ -14,34 +14,21 @@ router.get('/', (req, res) => {
       res.render('error', {error: err})
     } else {
       Item.get((err, items) => {
-
-      // items = items.map(item => {
-      //   item.dueDate = moment(item.dueDate, 'X').format('l');
-      //   item.createdAt = moment(item.createdAt, 'X').format('l');
-      //   return item;
-      // })
-
       res.render('home', {rooms: rooms, items: items});
     })
   }
 })
 })
 //  GET /
-router.get('/whatever', (req, res) => {
-  Item.get((err, items) => {
-    if(err) {
-      res.render('error', {error: err})
-    } else {
-
-      // items = items.map(item => {
-      //   item.dueDate = moment(item.dueDate, 'X').format('l');
-      //   item.createdAt = moment(item.createdAt, 'X').format('l');
-      //   return item;
-      // })
-      console.log("I TEMS", items);
-      res.render('home', {"items": items});
-    }
-  })
-})
+// router.get('/whatever', (req, res) => {
+//   Item.get((err, items) => {
+//     if(err) {
+//       res.render('error', {error: err})
+//     } else {
+//       console.log("I TEMS", items);
+//       res.render('home', {"items": items});
+//     }
+//   })
+// })
 
 module.exports = router;

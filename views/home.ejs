@@ -1,125 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Home Inventory App</title>
+    <meta charset="UTF-8">
+    <title>Home Inventory App</title>
 
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
-  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/bower_components/moment/moment.js"></script>
-  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="home.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="home.js"></script>
 
 </head>
+
 <body>
-  <div class="container">
-    <h1 class="text-center">Home Inventory</h1>
-    <button class="btn btn-default btn-lg newItem">Add New Item</button>
+    <div class="container">
+        <h1 class="text-center">Home Inventory</h1>
+        <button class="btn btn-default btn-lg newItem">Add New Item</button>
+        <button class="btn btn-default btn-lg deleteItem">Delete Item</button>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Value</th>
-          <th>Room</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(var i = 0; i < items.length; i++) { %>
-          <tr data-id=<%=items[i].id%>  >
-            <td><%= items[i].item_name %></td>
-            <td><%= items[i].item_value %></td>
-            <td><%= items[i].item_room %></td>
-            <td>
-              <% if(items[i].isComplete) { %>
-                <input type="checkbox" name="" id="" checked>
-              <% } else { %>
-                <input type="checkbox" name="" id="">
-              <% } %>
-            </td>
-          </tr>
-        <%  }  %>
-      </tbody>
-    </table>
-  </div>
-  <div class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form class='newItemForm'>
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">New Item</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="newItemName">Item Name</label>
-              <input type="text" class="form-control" id="newItemName" placeholder="Washing Machine" required>
-            </div>
-            <div class="form-group">
-              <label for="newItemValue">Item Value</label>
-              <input type="text" class="form-control" id="newItemValue" placeholder="$0.00"required>
-            </div>
-            <div class="form-group">
-              <label for="newItemValue">Item Room</label>
-              <input type="text" class="form-control" id="newItemRoom" placeholder="Bedroom"required>
-            </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Create Item</button>
-          </div>
-        </form>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
 
-<!-- ROOM  -->
-  <button class="btn btn-default btn-lg newRoom">Add New Room</button>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Room Type</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for(var i = 0; i < rooms.length; i++) { %>
-        <tr data-id=<%=rooms[i].id%>  >
-          <td><%= rooms[i].room_type %></td>
-          <td>
-            <% if(rooms[i].isComplete) { %>
-              <input type="checkbox" name="" id="" checked>
-            <% } else { %>
-              <input type="checkbox" name="" id="">
-            <% } %>
-          </td>
-        </tr>
-      <%  }  %>
-    </tbody>
-  </table>
-  </div>
-  <div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form class='newRoomForm'>
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">New Room</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Value</th>
+                    <th>Room</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < items.length; i++) { %>
+                    <tr data-id=<%=items[i].id%> >
+                        <td>
+                            <%= items[i].item_name %>
+                        </td>
+                        <td>
+                            <%= items[i].item_value %>
+                        </td>
+                        <td>
+                            <%= items[i].item_room %>
+                        </td>
+                        <td>
+                            <% if(items[i].isComplete) { %>
+                                <input type="checkbox" name="" id="" checked>
+                                <% } else { %>
+                                    <input type="checkbox" name="" id="">
+                                    <% } %>
+                        </td>
+                    </tr>
+                    <%  }  %>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class='newItemForm'>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">New Item</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="newItemName">Item Name</label>
+                            <input type="text" class="form-control" id="newItemName" placeholder="Washing Machine" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newItemValue">Item Value</label>
+                            <input type="text" class="form-control" id="newItemValue" placeholder="$0.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newItemValue">Item Room</label>
+                            <input type="text" class="form-control" id="newItemRoom" placeholder="Bedroom" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create Item</button>
+                        </div>
+                </form>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
         </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="newRoomType">Room Type</label>
-            <input type="text" class="form-control" id="newRoomType" placeholder="Kitchen" required>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Create Room</button>
-        </div>
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+        <!-- /.modal -->
+    </div>
 
+
+    <!-- ROOM -->
+
+    <div class="container">
+        <button class="btn btn-default btn-md newRoom">Add New Room</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Room Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < rooms.length; i++) { %>
+                    <tr data-id=<%=rooms[i].id%> >
+                        <td>
+                            <%= rooms[i].room_type %>
+                        </td>
+                        <td>
+                            <% if(rooms[i].isComplete) { %>
+                                <input type="checkbox" name="" id="" checked>
+                                <% } else { %>
+                                    <input type="checkbox" name="" id="">
+                                    <% } %>
+                        </td>
+                    </tr>
+                    <%  }  %>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class='newForm'>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">New Room</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="newRoomType">Room Type</label>
+                            <input type="text" class="form-control" id="newRoomType" placeholder="Laundry Room" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create Room</button>
+                        </div>
+                </form>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </div>
 </body>
+
 </html>

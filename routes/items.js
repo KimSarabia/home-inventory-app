@@ -14,13 +14,21 @@ router.route('/')
       if(err) {
         return res.status(400).send(err);
       }
-
       res.send(items);
     });
   })
   .post((req, res) => {
     // req.body  -->  { desc: ??, dueDate: ?? }
     Item.create(req.body, err => {
+      if(err) {
+        return res.status(400).send(err);
+      }
+      res.send();
+    });
+  })
+  .delete((req, res) => {
+    // req.body  -->  { desc: ??, dueDate: ?? }
+    Item.delete(req.body, err => {
       if(err) {
         return res.status(400).send(err);
       }

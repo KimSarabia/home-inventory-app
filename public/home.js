@@ -4,7 +4,11 @@
 $(()=>{
 
   $('.newItem').click(openNewItemModal);
+  $('.deleteItem').click(deleteItem);
   $('form.newItemForm').submit(createNewItem);
+  $('.newRoom').click(openNewRoomModal);
+  $('form.newRoomForm').submit(createNewRoom);
+
 });
 
 function createNewItem(e) {
@@ -30,6 +34,28 @@ function createNewItem(e) {
     });
 }
 
+function deleteItem(e) {
+  e.preventDefault();
+
+  $.delete(`api/items/${item.id}`).then(res => {
+      console.log("Successfully deleted");
+  }, err => {
+      if (err) {
+          console.log(err);
+      }
+  });
+}
+
+// router.delete('/:id',function(req,res,next){
+//   db.query('DELETE FROM questions WHERE ?', {id:req.params.id}, function(err,result){
+//     if(err){
+//       res.status(400).send(err);
+//       return;
+//     }
+//     res.send(result);
+//   });
+// });
+
 function createNewRoom(e) {
   e.preventDefault();
 
@@ -42,7 +68,7 @@ function createNewRoom(e) {
   $.post('/api/rooms', newRoom)
     .done(() => {
       // rerender the DOM
-      $('.modal').modal('hide');
+      $('.roomModal').modal('hide');
     })
     .fail(err => {
       console.error('ERROR!!!!', err);
@@ -51,4 +77,8 @@ function createNewRoom(e) {
 
 function openNewItemModal() {
   $('.modal').modal('show');
+}
+
+function openNewRoomModal() {
+  $('.roomModal').modal('show');
 }
