@@ -15,7 +15,6 @@ exports.create = function(room, cb) {
     return cb('Missing required field.')
   }
 
-  db.query('INSERT INTO items (room) VALUES (?)',
-    room.room_type,
+  db.query(`INSERT INTO items (room_type) VALUES ('${room.room_type}')`,
     cb);
 };
