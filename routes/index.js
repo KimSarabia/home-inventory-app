@@ -5,6 +5,7 @@ var router = express.Router();
 
 var moment = require('moment');
 var Item = require('../models/item');
+var Room = require('../models/room');
 
 //  GET /
 router.get('/', (req, res) => {
@@ -13,11 +14,11 @@ router.get('/', (req, res) => {
       res.render('error', {error: err})
     } else {
 
-      items = items.map(item => {
-        item.dueDate = moment(item.dueDate, 'X').format('l');
-        item.createdAt = moment(item.createdAt, 'X').format('l');
-        return item;
-      })
+      // items = items.map(item => {
+      //   item.dueDate = moment(item.dueDate, 'X').format('l');
+      //   item.createdAt = moment(item.createdAt, 'X').format('l');
+      //   return item;
+      // })
 
       res.render('home', {items: items});
     }

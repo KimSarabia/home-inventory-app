@@ -6,21 +6,21 @@ var router = express.Router();
 var Item = require('../models/item');
 var Room = require('../models/room');
 
-//   /api/items
+//   /api/rooms
 router.route('/')
   .get((req, res) => {
 
-    Item.get((err, items) => {
+    Room.get((err, rooms) => {
       if(err) {
         return res.status(400).send(err);
       }
 
-      res.send(items);
+      res.send(rooms);
     });
   })
   .post((req, res) => {
     // req.body  -->  { desc: ??, dueDate: ?? }
-    Item.create(req.body, err => {
+    Room.create(req.body, err => {
       if(err) {
         return res.status(400).send(err);
       }

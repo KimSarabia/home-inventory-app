@@ -1,13 +1,13 @@
-##Home Inventory App
+#Home Inventory App
 A home inventory app (for insurance claims) that keeps track of what you have and where it is.
 
-#Built with...
+###Built with...
 MySQL
 Node
 Express
 HTML, CSS, JS
 
-#Functionality:
+###Functionality:
 * Create, Read, Update, Delete (CRUD) and track:
 * Description (Make, Model, serial number, etc.)
 * Category (clothing, electronics, book, etc.).

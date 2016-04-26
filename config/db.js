@@ -1,10 +1,21 @@
 'use strict';
 
-var sqlite3 = require('sqlite3').verbose();
-var path = require('path');
+var mysql = require("mysql");
 
-var dbPath = path.join(__dirname, '../data/items.db');
+var connection = mysql.createConnection(process.env.JAWSDB_URL || {
+    host: "localhost",
+    user: "root",
+    password: "test",
+    database: "home_inventory"
+});
 
-var db = new sqlite3.Database(dbPath);
+connection.connect(function(err){
+if(err){
+  console.log('Error:', err);
+}
+else{
+  console.log('Connection success!');
+}
+});
 
-module.exports = db;
+module.exports = connection;
