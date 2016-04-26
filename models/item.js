@@ -3,30 +3,24 @@
 var db = require('../config/db');
 var moment = require('moment');
 
-db.run(`CREATE TABLE IF NOT EXISTS items (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          createdAt DATETIME,
-          dueDate DATETIME,
-          desc TEXT,
-          isComplete BOOLEAN DEFAULT 0
-        )`);
+db.query(`CREATE TABLE IF NOT EXISTS items (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(100),
+        value DECIMAL(10, 2),
+        room VARCHAR(100)
+      )`);
 
 exports.get = function(cb) {
-  db.all('SELECT * FROM items', cb);
+  db.query('SELECT * FROM items', cb);
 };
 
 exports.create = function(item, cb) {
-  if(!item.dueDate || !item.desc) {
+  if(!item.name || !item.value) {
     return cb('Missing required field.')
   }
-  
-  var createdAt = moment().unix();
-  var dueDate = moment(item.dueDate).unix();
 
-  db.run('INSERT INTO items (createdAt, dueDate, desc) VALUES (?, ?, ?)',
-    createdAt,
-    dueDate,
-    item.desc,
+  db.query('INSERT INTO items (name, value, room) VALUES (?, ?, ?)',
+    item.name,
+    item.value,
+    item.room,
     cb);
 };
-

@@ -3,22 +3,22 @@
 
 $(()=>{
 
-  $('.newTodo').click(openNewTodoModal);
-  $('form.newTodoForm').submit(createNewTodo);
+  $('.newItem').click(openNewItemModal);
+  $('form.newItemForm').submit(createNewItem);
 });
 
-function createNewTodo(e) {
+function createNewItem(e) {
   e.preventDefault();
 
-  var newTodo = {
-    desc: $('#newTodoDesc').val(),
-    dueDate: $('#newTodoDueDate').val(),
+  var newItem = {
+    desc: $('#newItemDesc').val(),
+    dueDate: $('#newItemDueDate').val(),
   };
 
-  $('#newTodoDesc').val('');
-  $('#newTodoDueDate').val('');
+  $('#newItemDesc').val('');
+  $('#newItemDueDate').val('');
 
-  $.post('/api/items', newTodo)
+  $.post('/api/items', newItem)
     .done(() => {
       // rerender the DOM
       $('.modal').modal('hide');
@@ -28,7 +28,6 @@ function createNewTodo(e) {
     });
 }
 
-function openNewTodoModal() {
+function openNewItemModal() {
   $('.modal').modal('show');
 }
-
