@@ -11,9 +11,24 @@ $(()=>{
 
 });
 
-function createNewItem(e) {
+function changeCheckbox(e){
   e.preventDefault();
 
+  var id = $(e.target).closest('tr').data('id');
+
+  $.ajax(`api/items/${id}/toggle`, {
+    method: 'PUT'
+  })
+  .done(data => {
+    $target.prop('selected', data.newValue);
+  })
+  .fail(err => {
+    console.error('ERROR!!!', err);
+  })
+}
+
+function createNewItem(e) {
+  e.preventDefault();
   var newItem = {
     item_name: $('#newItemName').val(),
     item_value: $('#newItemValue').val(),
@@ -25,7 +40,17 @@ function createNewItem(e) {
   $('#newItemRoom').val('');
 
   $.post('/api/items', newItem)
-    .done(() => {
+    .done(newItem => {
+
+      var $item = $('.template').clone();
+      $item.removeClass('template');
+      $item.data('id', newItem.id);
+
+      $item.find('.item_name').text(newItem.item_name);
+      $item.find('.item_value').text(newItem.item_value);
+      $item.find('.item_room').text(newItem.item_room);
+
+      $('.itemList').append($todo);
       // rerender the DOM
       $('.modal').modal('hide');
     })
@@ -36,7 +61,6 @@ function createNewItem(e) {
 
 function deleteItem(e) {
   e.preventDefault();
-
   $.delete(`api/items/${item.id}`).then(res => {
       console.log("Successfully deleted");
   }, err => {

@@ -36,4 +36,13 @@ router.route('/')
     });
   });
 
+router.put('/:id/toggle', (req,res) => {
+  Item.toggle(req.params.id, (err, newValue) => {
+    if(err) {
+      return res.status(400).send(err);
+    }
+    res.send({newValue: newValue});
+  });
+});
+
 module.exports = router;

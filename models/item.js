@@ -12,6 +12,13 @@ exports.get = function(cb) {
   db.query('SELECT * FROM items', cb);
 };
 
+exports.getOneById = function(id,cb) {
+  db.query(`SELECT * FROM items WHERE (id) = (
+      ${item.id})`,
+    id,
+    cb);
+};
+
 exports.create = function(item, cb) {
   if(!item.item_name || !item.item_value) {
     return cb('Missing required field.')
@@ -29,6 +36,20 @@ console.log("ITEM", item);
       ${item.id})`,
     cb);
 };
+
+exports.toggle = function(id, cb) {
+
+  this.getOneById(id, (err, items) => {
+    if(err) return cb(err);
+    var newValue = item.isSelected ? 0 : 1;
+
+    db.query("UPDATE items SET is SELECTED = ? WHERE id = ?", newValue, id, (err) => {
+      if(err) return cb(err);
+      cb(null, newValue);
+    })
+  });
+
+}
 
 // router.delete('/:id',function(req,res,next){
 //   db.query('DELETE FROM questions WHERE ?', {id:req.params.id}, function(err,result){

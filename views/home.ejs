@@ -44,7 +44,7 @@
                             <%= items[i].item_room %>
                         </td>
                         <td>
-                            <% if(items[i].isComplete) { %>
+                            <% if(items[i].isSelected) { %>
                                 <input type="checkbox" name="" id="" checked>
                                 <% } else { %>
                                     <input type="checkbox" name="" id="">
@@ -107,7 +107,7 @@
                             <%= rooms[i].room_type %>
                         </td>
                         <td>
-                            <% if(rooms[i].isComplete) { %>
+                            <% if(rooms[i].isSelected) { %>
                                 <input type="checkbox" name="" id="" checked>
                                 <% } else { %>
                                     <input type="checkbox" name="" id="">
