@@ -11,14 +11,35 @@ function createNewItem(e) {
   e.preventDefault();
 
   var newItem = {
-    desc: $('#newItemDesc').val(),
-    dueDate: $('#newItemDueDate').val(),
+    item_name: $('#newItemName').val(),
+    item_value: $('#newItemValue').val(),
+    item_room: $('#newItemRoom').val()
   };
 
-  $('#newItemDesc').val('');
-  $('#newItemDueDate').val('');
+  $('#newItemName').val('');
+  $('#newItemValue').val('');
+  $('#newItemRoom').val('');
 
   $.post('/api/items', newItem)
+    .done(() => {
+      // rerender the DOM
+      $('.modal').modal('hide');
+    })
+    .fail(err => {
+      console.error('ERROR!!!!', err);
+    });
+}
+
+function createNewRoom(e) {
+  e.preventDefault();
+
+  var newRoom = {
+    room_type: $('#newRoomType').val()
+  };
+
+  $('#newRoomType').val('');
+
+  $.post('/api/rooms', newRoom)
     .done(() => {
       // rerender the DOM
       $('.modal').modal('hide');
