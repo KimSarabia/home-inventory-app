@@ -1,23 +1,27 @@
 {
-  "name": "item-from-scratch",
+  "name": "home-inventory-app",
   "version": "1.0.0",
   "description": "A home inventory app (for insurance claims) that keeps track of what you have and where it is.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "bower i"
+  },
+  "engines":{
+    "node":"4.3.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodingHouseFI/item-from-scratch.git"
+    "url": "git+https://github.com/KimSarabia/home-inventory-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodingHouseFI/item-from-scratch/issues"
+    "url": "https://github.com/KimSarabia/home-inventory-app/issues"
   },
-  "homepage": "https://github.com/CodingHouseFI/item-from-scratch#readme",
+  "homepage": "https://github.com/KimSarabia/home-inventory-app#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "bower": "^1.7.9",
