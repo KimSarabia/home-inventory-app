@@ -19,16 +19,6 @@ router.get('/', (req, res) => {
   }
 })
 })
-//  GET /
-// router.get('/whatever', (req, res) => {
-//   Item.get((err, items) => {
-//     if(err) {
-//       res.render('error', {error: err})
-//     } else {
-//       console.log("I TEMS", items);
-//       res.render('home', {"items": items});
-//     }
-//   })
-// })
+
 
 module.exports = router;

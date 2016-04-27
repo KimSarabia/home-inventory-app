@@ -1,3 +1,190 @@
 .template {
   display: none;
 }
+
+nav.menu {
+  background: none;
+  position: absolute;
+  top: 0;
+}
+nav.menu .navbar-brand {
+  font-size: 25px;
+  color: white;
+  text-transform: uppercase;
+}
+nav.menu .navbar-brand span {
+  color: #d9534f;
+}
+nav.menu .navbar-brand:hover {
+  color: white;
+}
+nav.menu .nav-item .nav-link {
+  color: #fff;
+  max-width: 72px;
+  height: 26px;
+  overflow: hidden;
+  margin-top: 5px;
+  padding: 0 3px;
+}
+nav.menu .nav-item .nav-link p {
+  margin-bottom: 20px;
+  transition: all 0.2s linear;
+  padding: 0 3px;
+}
+nav.menu .nav-item .nav-link .second {
+  background: white;
+  border-radius: 2px;
+}
+nav.menu .nav-item .nav-link .second.red {
+  background: #d9534f;
+  color: white;
+}
+nav.menu .nav-item .nav-link:hover p {
+  color: #333;
+  position: relative;
+  margin-top: -22px;
+}
+
+.jumbotron {
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  text-align: center;
+  position: relative;
+  height: 600px;
+  background: url("http://i.imgur.com/OOl7Iz5.png") center no-repeat;
+  background-size: cover;
+}
+.jumbotron div.arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  margin: auto;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-animation: bounce 1s linear;
+  -webkit-animation-iteration-count: infinite;
+}
+.jumbotron div.arrow a {
+  color: #fff;
+}
+@-webkit-keyframes bounce {
+  from {
+    bottom: 20px;
+  }
+  to {
+    bottom: 0;
+  }
+}
+.jumbotron h1 {
+  color: white;
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 90px;
+  font-size: 60px;
+  text-shadow: 1px 1px 5px black;
+  margin-bottom: 10px;
+}
+.jumbotron h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.redline {
+  height: 4px;
+  background: #d9534f;
+  -webkit-animation: surfin 3s linear;
+  width: 100%;
+  border-radius: 15px;
+}
+
+@-webkit-keyframes surfin {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+#intro {
+  background: #ebeeed;
+  margin-top: 0;
+  padding: 30px 0;
+  text-align: center;
+}
+#intro h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.table {
+  text-align: left;
+}
+#intro .line {
+  width: 100px;
+  height: 5px;
+  background: #555;
+  margin: 10px auto;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+#intro .card {
+  background: white;
+  overflow: hidden;
+}
+#intro .card .card-img {
+  height: 233.328px;
+  overflow: hidden;
+}
+#intro .card .card-img img:hover {
+  transition: 0.4s linear;
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.contact {
+  padding: 30px 0;
+  background: url("https://images.unsplash.com/38/awhCbhLqRceCdjcPQUnn_IMG_0249.jpg?q=80&fm=jpg&s=293cce57f99e5d60745e1da9da9db675") fixed no-repeat;
+  background-size: cover;
+}
+.contact input {
+  border-radius: 0;
+  height: 50px;
+}
+.contact .textarea {
+  border-radius: 0;
+  height: 150px;
+}
+.contact button {
+  border-radius: 0;
+}
+
+footer {
+  background: white;
+}
+footer .top-footer {
+  padding: 30px 0;
+  border-bottom: 1px solid #888;
+}
+footer .main-footer {
+  padding: 30px 0;
+}
+footer .main-footer .social a {
+  font-size: 20px;
+  color: #777;
+}
+footer .main-footer .social a:hover {
+  color: #d9534f;
+}
+footer .main-footer .year {
+  text-align: center;
+}
+footer .main-footer .copyright {
+  text-align: right;
+}

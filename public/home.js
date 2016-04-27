@@ -1,6 +1,5 @@
 'use strict';
 
-
 $(()=>{
 
   $('.newItem').click(openNewItemModal);
@@ -13,6 +12,8 @@ $(()=>{
 
 function changeCheckbox(e){
   e.preventDefault();
+
+  $target = $(e.target);
 
   var id = $(e.target).closest('tr').data('id');
 
@@ -69,16 +70,6 @@ function deleteItem(e) {
       }
   });
 }
-
-// router.delete('/:id',function(req,res,next){
-//   db.query('DELETE FROM questions WHERE ?', {id:req.params.id}, function(err,result){
-//     if(err){
-//       res.status(400).send(err);
-//       return;
-//     }
-//     res.send(result);
-//   });
-// });
 
 function createNewRoom(e) {
   e.preventDefault();

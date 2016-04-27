@@ -16,133 +16,227 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="text-center">Home Inventory</h1>
-        <button class="btn btn-default btn-lg newItem">Add New Item</button>
-        <button class="btn btn-default btn-lg deleteItem">Delete Item</button>
 
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Value</th>
-                    <th>Room</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(var i = 0; i < items.length; i++) { %>
-                    <tr data-id=<%=items[i].id%> >
-                        <td>
-                            <%= items[i].item_name %>
-                        </td>
-                        <td>
-                            <%= items[i].item_value %>
-                        </td>
-                        <td>
-                            <%= items[i].item_room %>
-                        </td>
-                        <td>
-                            <% if(items[i].isSelected) { %>
-                                <input type="checkbox" name="" id="" checked>
-                                <% } else { %>
-                                    <input type="checkbox" name="" id="">
-                                    <% } %>
-                        </td>
-                    </tr>
-                    <%  }  %>
-            </tbody>
-        </table>
-    </div>
-    <div class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form class='newItemForm'>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">New Item</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="newItemName">Item Name</label>
-                            <input type="text" class="form-control" id="newItemName" placeholder="Washing Machine" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="newItemValue">Item Value</label>
-                            <input type="text" class="form-control" id="newItemValue" placeholder="$0.00" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="newItemValue">Item Room</label>
-                            <input type="text" class="form-control" id="newItemRoom" placeholder="Bedroom" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create Item</button>
-                        </div>
-                </form>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
+    <!-- LANDING PAGE START -->
+    <nav class="navbar navbar-light navbar-fixed-top bg-primary menu" role='navigation'>
+        <div class="container">
+            <a class="navbar-brand pull-left" href="#">Home Inventory</a>
+            <ul class="navbar-nav nav pull-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <p>Home</p>
+                        <p class="second">Home</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <p>Settings</p>
+                        <p class="second">Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <p>Login</p>
+                        <p class="second red">Login</p>
+                    </a>
+                </li>
+                </a>
+                </li>
+            </ul>
         </div>
-        <!-- /.modal -->
-    </div>
-
-
-    <!-- ROOM -->
-
-    <div class="container">
-        <button class="btn btn-default btn-md newRoom">Add New Room</button>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Room Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(var i = 0; i < rooms.length; i++) { %>
-                    <tr data-id=<%=rooms[i].id%> >
-                        <td>
-                            <%= rooms[i].room_type %>
-                        </td>
-                        <td>
-                            <% if(rooms[i].isSelected) { %>
-                                <input type="checkbox" name="" id="" checked>
-                                <% } else { %>
-                                    <input type="checkbox" name="" id="">
-                                    <% } %>
-                        </td>
-                    </tr>
-                    <%  }  %>
-            </tbody>
-        </table>
-    </div>
-    <div class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form class='newForm'>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">New Room</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="newRoomType">Room Type</label>
-                            <input type="text" class="form-control" id="newRoomType" placeholder="Laundry Room" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create Room</button>
-                        </div>
-                </form>
-                </div>
-                <!-- /.modal-content -->
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Track the items in your home</h1>
+            <h3>Join us today for more</h3>
+            <p><a class="btn btn-danger btn-md" href="">SIGN UP</a></p>
+            <div class="arrow">
+                <a href="#intro"><i class="fa fa-chevron-down"></i></a>
             </div>
-            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal -->
     </div>
+    <div class="redline"></div>
+    <div id="intro">
+        <div class="container">
+            <h2>Welcome to your home inventory app</h2>
+            <div class="line"></div>
+            <div class="container">
+                <h1 class="text-center">Home Inventory</h1>
+                <button class="btn btn-default btn-lg newItem">Add New Item</button>
+                <button class="btn btn-default btn-lg deleteItem">Delete Item</button>
+                <br>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Value</th>
+                            <th>Room</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < items.length; i++) { %>
+                            <tr data-id=<%=items[i].id%> >
+                                <td>
+                                    <%= items[i].item_name %>
+                                </td>
+                                <td>
+                                    <%= items[i].item_value %>
+                                </td>
+                                <td>
+                                    <%= items[i].item_room %>
+                                </td>
+                                <td>
+                                    <% if(items[i].isSelected) { %>
+                                        <input type="checkbox" name="" id="" checked>
+                                        <% } else { %>
+                                            <input type="checkbox" name="" id="">
+                                            <% } %>
+                                </td>
+                            </tr>
+                            <%  }  %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form class='newItemForm'>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">New Item</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="newItemName">Item Name</label>
+                                    <input type="text" class="form-control" id="newItemName" placeholder="Washing Machine" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newItemValue">Item Value</label>
+                                    <input type="text" class="form-control" id="newItemValue" placeholder="$0.00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newItemValue">Item Room</label>
+                                    <input type="text" class="form-control" id="newItemRoom" placeholder="Bedroom" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create Item</button>
+                                </div>
+                        </form>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </div>
+
+
+            <!-- ROOM -->
+
+            <div class="container">
+                <button class="btn btn-default btn-md newRoom">Add New Room</button>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Room Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < rooms.length; i++) { %>
+                            <tr data-id=<%=rooms[i].id%> >
+                                <td>
+                                    <%= rooms[i].room_type %>
+                                </td>
+                                <td>
+                                    <% if(rooms[i].isSelected) { %>
+                                        <input type="checkbox" name="" id="" checked>
+                                        <% } else { %>
+                                            <input type="checkbox" name="" id="">
+                                            <% } %>
+                                </td>
+                            </tr>
+                            <%  }  %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form class='newForm'>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">New Room</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="newRoomType">Room Type</label>
+                                    <input type="text" class="form-control" id="newRoomType" placeholder="Laundry Room" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create Room</button>
+                                </div>
+                        </form>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </div>
+
+        </div>
+    <footer>
+        <div class="container">
+            <div class="top-footer">
+
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <address>
+      <strong>Home Inventory Co.</strong><br>
+      795 Folsom Ave, Suite 600<br>
+      San Francisco, CA 94107<br>
+      <abbr title="Phone">P:</abbr> (123) <456->  </456->7890
+    </address>
+                    </div>
+
+                    <div class="col-md-7">
+                        <h3>Home Inventory App</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laudantium quasi, mollitia, doloremque pariatur suscipit atque praesentium porro! Repellendus necessitatibus dolor, eligendi omnis. Sed incidunt, in nulla illum, veniam
+                            saepe.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main-footer">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                    <div class="col-md-4 col-sm-12 year">
+                        <p>Home Inventory. 2015</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="col-md-4 col-sm-12 copyright">
+                        <p>Copyright &copy; Home Inventory</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css"> -->
+    <!-- LANDING PAGE END -->
 </body>
 
 </html>
